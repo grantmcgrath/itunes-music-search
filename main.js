@@ -12,14 +12,12 @@ var button = document.querySelector("button");
 var results = document.getElementById("results");
 let player = document.querySelector(".music-player");
 var retData;
-var restResult = "";
 
 console.log(input);
 console.log(button);
 console.log(results);
 console.log(player);
 console.log(retData);
-console.log(restResult);
 
 button.addEventListener("click", function search() {
 
@@ -30,11 +28,11 @@ button.addEventListener("click", function search() {
   // searchTerm = searchTerm.split(" ").join("+");
 
   fetch(`https://itunes.apple.com/search?term=${searchTerm}`).then(function(response) {
-    console.log(response);
+    // console.log(response);
     response.json().then(function(data) {
-        console.log(data);
+        // console.log(data);
         retData = data.results;
-        console.log(retData);
+        // console.log(retData);
         // return retData;
         console.log(retData[0].trackName);
       })
@@ -47,15 +45,14 @@ button.addEventListener("click", function search() {
                       <div>
                         <img src=${retData[i].artworkUrl100} alt=${retData[i].artistName}>
                       </div>
-
                       <p class="songTitle">${retData[i].trackName}</p>
                       <p class="bandName">${retData[i].artistName}</p>
                       </button>
                     </div>`
         }
-
         var track = document.querySelectorAll(".track");
         for (var i = 0; i < retData.length; i++) {
+          // console.log(retData[0].trackName);
           track[i].addEventListener("click", function() {
             player.innerHTML = `
                                    <p>Now playing:  ${retData[i].trackName} - ${retData[i].artistName}</p>
