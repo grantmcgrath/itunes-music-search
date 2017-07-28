@@ -14,54 +14,22 @@
     </header>
 
     <section class="player">
-      <audio class="music-player" controls="controls" src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" preload="auto"></audio>
+      <audio class="music-player" controls="controls" src="" preload="auto"></audio>
     </section>
 
     <section class="search">
       <form class="search-form">
-        <input type="text" name="search" placeholder="Search for Artist" value="">
-        <button type="button" name="button">Search</button>
+        <input type="text" placeholder="Search for Artist" id="artistSearch">
+        <button type="button" name="button" id="searchButton">Search</button>
       </form>
     </section>
 
-    <section class="results">
-      <p class="searchTitle">Search Results:</p>
-      <div class="box">
-        <div class="placeholderResult">
-          <img src="" alt="Image Placeholder">
-        </div>
-        <p class="songTitle">Song Title</p>
-        <p class="bandName">Band Name</p>
-      </div>
-      <div class="box">
-        <div class="placeholderResult">
-          <img src="" alt="Image Placeholder">
-        </div>
-        <p class="songTitle">Song Title</p>
-        <p class="bandName">Band Name</p>
-      </div>
-      <div class="box">
-        <div class="placeholderResult">
-          <img src="" alt="Image Placeholder">
-        </div>
-        <p class="songTitle">Song Title</p>
-        <p class="bandName">Band Name</p>
-      </div>
-      <div class="box">
-        <div class="placeholderResult">
-          <img src="" alt="Image Placeholder">
-        </div>
-        <p class="songTitle">Song Title</p>
-        <p class="bandName">Band Name</p>
-      </div>
-      <div class="box">
-        <div class="placeholderResult">
-          <img src="" alt="Image Placeholder">
-        </div>
-        <p class="songTitle">Song Title</p>
-        <p class="bandName">Band Name</p>
-      </div>
+    <section>
+      <p id="searchTitle">Search Results:</p>
+    </section>
 
+    <section id="results">
+    <!-- Results of Search show up here -->
     </section>
   </div>
   <script src="main.js"></script>
