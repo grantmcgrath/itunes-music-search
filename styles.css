@@ -27,14 +27,14 @@ input {
   border: 2px solid #a5a5a5;
 }
 
-/*button {
+button {
   font-size: 1.8vw;
   padding: .6vw;
   width: 19%;
-  border: 1px solid;
+  border: 1px solid #a5a5a5;
   border-radius: 8px;
   background-color: #dadada;
-}*/
+}
 
 img {
   text-align: center;
@@ -50,9 +50,7 @@ img {
 
 .search {
   border-top: 2px solid #888888;
-  /*border-top: 2px solid #a5a5a5;*/
   border-bottom: 2px solid #a5a5a5;
-  /*border-bottom: 2px solid #e7e7e7;*/
   padding: 3vw 0;
 }
 
@@ -61,6 +59,7 @@ img {
   justify-content: space-between;
   margin-top: .5vw;
   flex-wrap: wrap;
+
 }
 
 #searchTitle {
@@ -72,10 +71,11 @@ img {
 }
 
 .box {
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 150px;
-  height: 210px;
+  align-self: flex-start;
+  margin-bottom: 15px;
+  box-shadow: 10px 5px 10px grey;
 }
 
 .track {
