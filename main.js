@@ -10,14 +10,14 @@
 var input = document.querySelector("input");
 var button = document.querySelector("button");
 var results = document.getElementById("results");
-let player = document.querySelector(".music-player");
-var retData;
+// let player = document.querySelector("player");
+var retData = {};
 
-console.log(input);
-console.log(button);
-console.log(results);
-console.log(player);
-console.log(retData);
+// console.log(input);
+// console.log(button);
+// console.log(results);
+// console.log(player);
+// console.log(retData);
 
 button.addEventListener("click", function search() {
 
@@ -27,13 +27,13 @@ button.addEventListener("click", function search() {
   var searchTerm = input.value;
   // searchTerm = searchTerm.split(" ").join("+");
 
-  fetch(`https://itunes.apple.com/search?term=${searchTerm}`).then(function(response) {
+  fetch(`https://itunes.apple.com/search?term=${searchTerm}&media=music`).then(function(response) {
     // console.log(response);
     response.json().then(function(data) {
         // console.log(data);
         retData = data.results;
         // console.log(retData);
-        // return retData;
+        return retData;
         console.log(retData[0].trackName);
       })
 
@@ -41,7 +41,7 @@ button.addEventListener("click", function search() {
         for (var i = 0; i < retData.length; i++) {
           results.innerHTML += `
                     <div class="box">
-                      <button id="track${[i]}" class="track">
+                      <button id="${retData[i].trackName}" class="track">
                       <div>
                         <img src=${retData[i].artworkUrl100} alt=${retData[i].artistName}>
                       </div>
@@ -50,16 +50,20 @@ button.addEventListener("click", function search() {
                       </button>
                     </div>`
         }
-        var track = document.querySelectorAll(".track");
-        for (var i = 0; i < retData.length; i++) {
-          // console.log(retData[0].trackName);
-          track[i].addEventListener("click", function() {
+      })
+
+      .then(function() {
+        var tracks = document.querySelectorAll(".track");
+        tracks.forEach(function(track,i) {
+          // console.log(track);
+          track.addEventListener("click", function() {
+            console.log(track);
             player.innerHTML = `
                                    <p>Now playing:  ${retData[i].trackName} - ${retData[i].artistName}</p>
                                    <audio src="${retData[i].previewUrl}" controls="controls" class="music-player"></audio>
                                  `
           })
-        }
+        })
       })
   })
 })
